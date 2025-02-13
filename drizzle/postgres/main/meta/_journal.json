@@ -1,0 +1,20 @@
+{
+  "version": "7",
+  "dialect": "postgresql",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "7",
+      "when": 1739357856322,
+      "tag": "0000_create-extension-uuid-ossp",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1739360231450,
+      "tag": "0001_create-user-post",
+      "breakpoints": true
+    }
+  ]
+}
