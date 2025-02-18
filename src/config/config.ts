@@ -31,6 +31,7 @@ export const config: Config = {
   database: {
     postgres: {
       main: process.env['POSTGRES_MAIN_DATABASE_URL'] || '',
+      sub: process.env['POSTGRES_SUB_DATABASE_URL'] || '',
     },
   },
 };

@@ -3,7 +3,7 @@ import { Injectable, NotFoundException } from '@nestjs/common';
 import { CreateUserDto, FindAllUsersDto, UpdateUserDto, UserDto } from './dto';
 import { InjectConnection } from 'nest-knexjs';
 import { Knex } from 'knex';
-import { PG_MAIN_DB } from '@/db/database.module';
+import { PG_MAIN_DB } from '@/common/constants';
 
 @Injectable()
 export class UsersService {

@@ -34,5 +34,6 @@ export interface SecurityConfig {
 export interface DatabaseConfig {
   postgres: {
     main: string;
+    sub: string; // example of multi-db
   };
 }

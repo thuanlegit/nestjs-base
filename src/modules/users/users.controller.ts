@@ -22,32 +22,32 @@ import { UsersService } from './users.service';
 export class UsersController {
   constructor(private readonly usersService: UsersService) {}
 
-  @ApiOkResponse({ type: UserDto })
   @Post()
+  @ApiOkResponse({ type: UserDto })
   create(@Body() createUserDto: CreateUserDto) {
     return this.usersService.create(createUserDto);
   }
 
-  @ApiOkPaginatedResponse(UserDto)
   @Get()
+  @ApiOkPaginatedResponse(UserDto)
   findAll(@Query() query: FindAllUsersDto) {
     return this.usersService.findAll(query);
   }
 
-  @ApiOkResponse({ type: UserDto })
   @Get(':id')
+  @ApiOkResponse({ type: UserDto })
   findOne(@Param('id', ParseIntPipe) id: number) {
     return this.usersService.findOne(id);
   }
 
-  @ApiOkResponse({ type: UserDto })
   @Patch(':id')
+  @ApiOkResponse({ type: UserDto })
   update(@Param('id', ParseIntPipe) id: number, @Body() updateUserDto: UpdateUserDto) {
     return this.usersService.update(id, updateUserDto);
   }
 
-  @ApiOkResponse({ type: UserDto })
   @Delete(':id')
+  @ApiOkResponse({ type: UserDto })
   remove(@Param('id', ParseIntPipe) id: string) {
     return this.usersService.remove(+id);
   }
