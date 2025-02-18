@@ -1,8 +1,10 @@
 import { Injectable } from '@nestjs/common';
-import { FindAllRolesDto, RoleDto } from './dto';
-import { InjectConnection } from 'nest-knexjs';
-import { PG_SUB_DB } from '@/common/constants';
 import { Knex } from 'knex';
+import { InjectConnection } from 'nest-knexjs';
+
+import { PG_SUB_DB } from '@/common/constants';
+
+import { FindAllRolesDto, RoleDto } from './dto';
 
 @Injectable()
 export class RolesService {
@@ -11,11 +13,11 @@ export class RolesService {
   async findAll(query: FindAllRolesDto) {
     const { limit, offset } = query;
 
-    const roles: RoleDto[] = await this.pgSubDb
+    const roles = (await this.pgSubDb
       .select(RoleDto.fields)
       .from('role')
       .limit(limit)
-      .offset(offset);
+      .offset(offset)) as RoleDto[];
 
     return roles;
   }

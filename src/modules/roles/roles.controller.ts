@@ -1,8 +1,10 @@
 import { Controller, Get, Query } from '@nestjs/common';
-import { RolesService } from './roles.service';
-import { ApiOkPaginatedResponse } from '@/common/decorators';
-import { FindAllRolesDto, RoleDto } from './dto';
 import { ApiTags } from '@nestjs/swagger';
+
+import { ApiOkPaginatedResponse } from '@/common/decorators';
+
+import { FindAllRolesDto, RoleDto } from './dto';
+import { RolesService } from './roles.service';
 
 @ApiTags('users')
 @Controller('roles')

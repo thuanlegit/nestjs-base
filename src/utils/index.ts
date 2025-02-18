@@ -1,2 +1,2 @@
-export * from './string.util';
 export * from './knex.util';
+export * from './string.util';

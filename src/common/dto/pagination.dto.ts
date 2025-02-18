@@ -18,7 +18,7 @@ export class PaginationQueryDto {
 }
 
 export class PaginatedResponse<T> {
-  @ApiProperty({isArray: true})
+  @ApiProperty({ isArray: true })
   data!: T[];
   total!: number;
   page!: number;

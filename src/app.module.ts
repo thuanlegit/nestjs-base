@@ -3,9 +3,9 @@ import { ConfigModule } from '@nestjs/config';
 
 import { config } from '@/config';
 
-import { UsersModule } from './modules/users/users.module';
 import { DatabaseModule } from './db/database.module';
 import { RolesModule } from './modules/roles/roles.module';
+import { UsersModule } from './modules/users/users.module';
 
 @Module({
   imports: [

@@ -4,5 +4,5 @@ export class RoleDto {
   description?: string;
   isActive!: boolean;
 
-  static fields = ['id', 'name', 'description', 'isActive']
+  static fields = ['id', 'name', 'description', 'isActive'];
 }

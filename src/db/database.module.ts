@@ -1,8 +1,9 @@
-import { PG_MAIN_DB, PG_SUB_DB } from '@/common/constants';
-import { postProcessResponseToCamelCase, wrapIdentifierToSnakeCase } from '@/utils';
 import { Module } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { KnexModule } from 'nest-knexjs';
+
+import { PG_MAIN_DB, PG_SUB_DB } from '@/common/constants';
+import { postProcessResponseToCamelCase, wrapIdentifierToSnakeCase } from '@/utils';
 
 @Module({
   imports: [
@@ -30,7 +31,10 @@ import { KnexModule } from 'nest-knexjs';
               client: 'pg',
               connection: databaseURL,
               //? Add the bellow fields if your db uses snake-case naming convention
-              postProcessResponse: (result, _queryContext) => {
+              postProcessResponse: (
+                result: Record<string, any> | Record<string, any>[],
+                _queryContext,
+              ) => {
                 return postProcessResponseToCamelCase(result);
               },
               wrapIdentifier: (value, origImpl) => {

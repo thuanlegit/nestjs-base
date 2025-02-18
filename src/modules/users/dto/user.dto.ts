@@ -3,5 +3,5 @@ export class UserDto {
   email!: string;
   name!: string;
 
-  static fields = ['id', 'email', 'name']
+  static fields = ['id', 'email', 'name'];
 }
