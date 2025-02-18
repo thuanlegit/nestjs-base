@@ -3,8 +3,8 @@ import { ConfigModule } from '@nestjs/config';
 
 import { config } from '@/config';
 
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
+import { UsersModule } from './modules/users/users.module';
+import { DatabaseModule } from './db/database.module';
 
 @Module({
   imports: [
@@ -12,8 +12,8 @@ import { AppService } from './app.service';
       load: [() => config],
       isGlobal: true,
     }),
+    DatabaseModule,
+    UsersModule,
   ],
-  controllers: [AppController],
-  providers: [AppService],
 })
 export class AppModule {}
