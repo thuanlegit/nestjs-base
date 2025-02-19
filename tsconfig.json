@@ -5,7 +5,7 @@
       "baseUrl": ".",
       "paths": {
         "@/*": [
-          "./src/*"
+          "src/*"
         ]
       }
     }
@@ -27,7 +27,7 @@
     "target": "ES2021",
     "sourceMap": true,
     "outDir": "./dist",
-    "baseUrl": "./",
+    "baseUrl": ".",
     "incremental": true,
     "skipLibCheck": true,
     "noImplicitAny": true,

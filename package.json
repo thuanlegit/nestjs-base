@@ -1,5 +1,5 @@
 {
-  "name": "nestjs-template-node20",
+  "name": "nestjs-base",
   "version": "0.0.1",
   "description": "",
   "author": "",
@@ -18,7 +18,18 @@
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
-    "test:e2e": "jest --config ./test/jest-e2e.json"
+    "test:e2e": "jest --config ./test/jest-e2e.json",
+    "migration:list:pg_main": "knex migrate:list --env pg_main",
+    "migration:create:pg_main": "knex migrate:make -x ts --env pg_main",
+    "migration:run:pg_main": "knex migrate:latest --env pg_main",
+    "migration:up:pg_main": "knex migrate:up --env pg_main",
+    "migration:down:pg_main": "knex migrate:down --env pg_main",
+    "migration:rollback:pg_main": "knex migrate:rollback --env pg_main",
+    "migration:list": "pnpm run migration:list:pg_main",
+    "migration:run": "pnpm run migration:run:pg_main",
+    "seed:create:pg_main": "knex seed:make -x ts --env pg_main",
+    "seed:run:pg_main": "knex seed:run --env pg_main",
+    "seed:run": "pnpm run seed:run:pg_main"
   },
   "dependencies": {
     "@nestjs/common": "^11.0.1",
