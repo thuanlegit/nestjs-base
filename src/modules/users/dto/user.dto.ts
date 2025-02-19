@@ -1,7 +1,7 @@
-export class UserDto {
-  id!: number;
-  email!: string;
-  name!: string;
+import { PickType } from '@nestjs/swagger';
 
-  static fields = ['id', 'email', 'name'];
+import { User } from '@/db/pg-main/models';
+
+export class UserDto extends PickType(User, ['id', 'email', 'name']) {
+  static attributes = ['id', 'email', 'name'];
 }

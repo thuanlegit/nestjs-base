@@ -10,8 +10,10 @@ import { createTypeScriptImportResolver } from 'eslint-import-resolver-typescrip
 
 export default tseslint.config(
   {
-    files: ['**/*.{js,mjs,cjs,jsx,mjsx,ts,tsx,mtsx}'],
-    ignores: ['eslint.config.mjs'],
+    ignores: ['dist/**', '**/*.mjs', 'eslint.config.mjs', '**/*.js'],
+  },
+  {
+    files: ['src/**/*.ts'],
   },
   eslint.configs.recommended,
   ...tseslint.configs.recommendedTypeChecked,
@@ -36,6 +38,7 @@ export default tseslint.config(
       'import-x/newline-after-import': 'error',
       'import-x/no-duplicates': 'error',
       'import-x/no-absolute-path': 'error',
+      'import-x/no-unresolved': ['error', { ignore: ['^@/+'] }],
       'simple-import-sort/imports': 'error',
       'simple-import-sort/exports': 'error',
     },

@@ -6,7 +6,7 @@ import { ApiOkPaginatedResponse } from '@/common/decorators';
 import { FindAllRolesDto, RoleDto } from './dto';
 import { RolesService } from './roles.service';
 
-@ApiTags('users')
+@ApiTags('roles')
 @Controller('roles')
 export class RolesController {
   constructor(private readonly rolesService: RolesService) {}

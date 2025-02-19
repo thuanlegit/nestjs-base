@@ -1,8 +1,7 @@
-export class RoleDto {
-  id!: string;
-  name!: string;
-  description?: string;
-  isActive!: boolean;
+import { PickType } from '@nestjs/swagger';
 
-  static fields = ['id', 'name', 'description', 'isActive'];
+import { Role } from '@/db/pg-sub/models';
+
+export class RoleDto extends PickType(Role, ['id', 'name', 'description', 'isActive']) {
+  static attributes = ['id', 'name', 'description', 'isActive'];
 }

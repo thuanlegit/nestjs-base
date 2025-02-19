@@ -4,6 +4,7 @@ import { ConfigModule } from '@nestjs/config';
 import { config } from '@/config';
 
 import { DatabaseModule } from './db/database.module';
+import { PostsModule } from './modules/posts/posts.module';
 import { RolesModule } from './modules/roles/roles.module';
 import { UsersModule } from './modules/users/users.module';
 
@@ -16,6 +17,7 @@ import { UsersModule } from './modules/users/users.module';
     DatabaseModule,
     UsersModule,
     RolesModule,
+    PostsModule,
   ],
 })
 export class AppModule {}
