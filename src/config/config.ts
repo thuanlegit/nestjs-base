@@ -1,14 +1,10 @@
-import * as dotenv from 'dotenv';
-
-import { NODE_ENV } from '@/common/constants';
+import { APP_ENV } from '@/common/constants';
 
 import type { Config } from './config.interface';
 
-dotenv.config();
-
 export const config: Config = {
   nest: {
-    env: process.env['APP_ENV'] ? (process.env['APP_ENV'] as NODE_ENV) : NODE_ENV.dev,
+    env: process.env['APP_ENV'] ? (process.env['APP_ENV'] as APP_ENV) : APP_ENV.dev,
     port: parseInt(process.env['PORT'] || '3000'),
   },
   cors: {
@@ -16,8 +12,7 @@ export const config: Config = {
   },
   swagger: {
     enabled:
-      (process.env['APP_ENV'] ? (process.env['APP_ENV'] as NODE_ENV) : NODE_ENV.dev) !==
-      NODE_ENV.prod,
+      (process.env['APP_ENV'] ? (process.env['APP_ENV'] as APP_ENV) : APP_ENV.dev) !== APP_ENV.prod,
     title: 'API Document',
     description: 'The nestjs API description',
     version: '0.0.1',

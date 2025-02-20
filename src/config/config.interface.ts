@@ -1,4 +1,4 @@
-import { NODE_ENV } from 'src/common/constants';
+import { APP_ENV } from 'src/common/constants';
 
 export interface Config {
   nest: NestConfig;
@@ -9,7 +9,7 @@ export interface Config {
 }
 
 export interface NestConfig {
-  env: NODE_ENV;
+  env: APP_ENV;
   port: number;
 }
 
