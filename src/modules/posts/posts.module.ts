@@ -2,7 +2,7 @@ import { Module } from '@nestjs/common';
 import { SequelizeModule } from '@nestjs/sequelize';
 
 import { PG_MAIN_SEQUELIZE } from '@/common/constants';
-import { Post, User } from '@/db/pg-main/models';
+import { Post, User } from '@/db/pg-main';
 
 import { PostsController } from './posts.controller';
 import { PostsService } from './posts.service';

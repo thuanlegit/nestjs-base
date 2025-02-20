@@ -4,7 +4,7 @@ import { Sequelize } from 'sequelize-typescript';
 
 import { PG_MAIN_SEQUELIZE } from '@/common/constants';
 import { PaginatedResponse } from '@/common/dto';
-import { Post, User } from '@/db/pg-main/models';
+import { Post, User } from '@/db/pg-main';
 import { toSnakeCase } from '@/utils';
 
 import { UserDto } from '../users/dto';

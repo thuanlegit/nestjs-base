@@ -10,6 +10,7 @@ export const knexModules = [
       useFactory: (configService: ConfigService) => {
         const databaseURL = configService.getOrThrow<string>('database.postgres.main');
         return {
+          name: PG_MAIN_KNEX,
           config: {
             client: 'pg',
             connection: databaseURL,
@@ -25,6 +26,7 @@ export const knexModules = [
       useFactory: (configService: ConfigService) => {
         const databaseURL = configService.getOrThrow<string>('database.postgres.sub');
         return {
+          name: PG_SUB_KNEX,
           config: {
             client: 'pg',
             connection: databaseURL,

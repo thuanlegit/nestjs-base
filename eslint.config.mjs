@@ -32,6 +32,18 @@ export default tseslint.config(
       ],
     },
     rules: {
+      'no-restricted-imports': [
+        'error',
+        {
+          patterns: [
+            '../**/_*',
+            '@/**/_*',
+            './*/**/_*',
+            '**/db/**/migrations/*',
+            '**/db/**/seeds/*',
+          ],
+        },
+      ],
       'import-x/no-dynamic-require': 'warn',
       'import-x/no-nodejs-modules': 'warn',
       'import-x/first': 'error',

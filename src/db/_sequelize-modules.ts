@@ -15,6 +15,7 @@ export const sequelizeModules = [
     useFactory: (configService: ConfigService) => {
       const databaseURL = configService.getOrThrow<string>('database.postgres.main');
       return {
+        name: PG_MAIN_SEQUELIZE,
         dialect: 'postgres',
         uri: databaseURL,
         models: [User, Post],
@@ -30,6 +31,7 @@ export const sequelizeModules = [
     useFactory: (configService: ConfigService) => {
       const databaseURL = configService.getOrThrow<string>('database.postgres.sub');
       return {
+        name: PG_SUB_SEQUELIZE,
         dialect: 'postgres',
         uri: databaseURL,
         models: [Role],
