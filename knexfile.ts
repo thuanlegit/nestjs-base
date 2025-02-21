@@ -1,13 +1,9 @@
-import 'tsconfig-paths/register';
-
 import type { Knex } from 'knex';
-
-import { config } from '@/config';
 
 const knexConfig: { [key: string]: Knex.Config } = {
   pg_main: {
     client: 'postgresql',
-    connection: config.database.postgres.main,
+    connection: process.env['POSTGRES_MAIN_DATABASE_URL'],
     migrations: {
       tableName: 'knex_migrations',
       directory: './src/db/pg-main/migrations',
@@ -18,7 +14,7 @@ const knexConfig: { [key: string]: Knex.Config } = {
   },
   pg_sub: {
     client: 'postgresql',
-    connection: config.database.postgres.sub,
+    connection: process.env['POSTGRES_SUB_DATABASE_URL'],
     migrations: {
       tableName: 'knex_migrations',
       directory: './src/db/pg-sub/migrations',

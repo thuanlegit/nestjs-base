@@ -1,0 +1,67 @@
+services:
+  # PostgreSQL Database 1
+  postgres1:
+    image: kartoza/postgis:17-3.5--v2024.12.17
+    container_name: postgres1
+    restart: always
+    environment:
+      POSTGRES_USER: 'postgres'
+      POSTGRES_PASS: '12345678'
+      POSTGRES_DBNAME: 'postgres'
+    ports:
+      - '6543:5432'
+    volumes:
+      - postgres1_data:/var/lib/postgresql/data
+    networks:
+      - my_network
+    healthcheck:
+      test: ['CMD', 'pg_isready', '-h', 'postgres1']
+      interval: 10s
+      retries: 5
+
+  # PostgreSQL Database 2
+  postgres2:
+    image: kartoza/postgis:17-3.5--v2024.12.17
+    container_name: postgres2
+    restart: always
+    environment:
+      POSTGRES_USER: 'postgres'
+      POSTGRES_PASS: '12345678'
+      POSTGRES_DBNAME: 'postgres'
+    ports:
+      - '6544:5432' # Exposing on a different port
+    volumes:
+      - postgres2_data:/var/lib/postgresql/data
+    networks:
+      - my_network
+    healthcheck:
+      test: ['CMD', 'pg_isready', '-h', 'postgres2']
+      interval: 10s
+      retries: 5
+
+  # NestJS App
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: nestjs-app-api
+    depends_on:
+      postgres1:
+        condition: service_healthy
+      postgres2:
+        condition: service_healthy
+    environment:
+      POSTGRES_MAIN_DATABASE_URL: 'postgresql://postgres:12345678@postgres1:5432/postgres'
+      POSTGRES_SUB_DATABASE_URL: 'postgresql://postgres:12345678@postgres2:5432/postgres'
+    ports:
+      - '3000:3000'
+    networks:
+      - my_network
+
+volumes:
+  postgres1_data:
+  postgres2_data:
+
+networks:
+  my_network:
+    driver: bridge

@@ -129,7 +129,6 @@ module.exports = function (_env: any, argv: any): webpack.Configuration {
       // Add to plugins array:
       new Dotenv({
         systemvars: true,
-        safe: true,
       }),
       // Copy static assets
       new CopyWebpackPlugin({

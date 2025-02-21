@@ -1,8 +1,12 @@
 {
-  "name": "nestjs-base",
+  "name": "nestjs-app-api",
   "version": "0.0.1",
-  "description": "",
-  "author": "",
+  "description": "A NestJs base project with Knexjs and Sequelize",
+  "author": {
+    "name": "thuanlegit",
+    "email": "dthuanle.20@gmail.com",
+    "url": "https://github.com/thuanlegit"
+  },
   "private": true,
   "license": "UNLICENSED",
   "scripts": {
