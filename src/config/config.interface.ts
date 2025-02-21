@@ -23,6 +23,8 @@ export interface SwaggerConfig {
   description: string;
   version: string;
   path: string;
+  username: string;
+  password: string;
 }
 
 export interface SecurityConfig {

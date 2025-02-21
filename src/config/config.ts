@@ -15,8 +15,10 @@ export const config: Config = {
       (process.env['APP_ENV'] ? (process.env['APP_ENV'] as APP_ENV) : APP_ENV.dev) !== APP_ENV.prod,
     title: 'API Document',
     description: 'The nestjs API description',
-    version: '0.0.1',
-    path: 'api',
+    version: '1.0',
+    path: 'docs',
+    username: process.env['SWAGGER_USERNAME'] || 'username',
+    password: process.env['SWAGGER_PASSWORD'] || 'password',
   },
   security: {
     expiresIn: '5m',
