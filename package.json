@@ -85,6 +85,7 @@
     "fork-ts-checker-webpack-plugin": "^9.0.2",
     "globals": "^15.14.0",
     "jest": "^29.7.0",
+    "jest-mock-extended": "4.0.0-beta1",
     "nodemon-webpack-plugin": "^4.8.2",
     "prettier": "^3.4.2",
     "source-map-support": "^0.5.21",
@@ -110,6 +111,38 @@
       "ts"
     ],
     "rootDir": "src",
+    "moduleNameMapper": {
+      "^@/(.*)$": "<rootDir>/$1"
+    },
+    "testPathIgnorePatterns": [
+      "/node_modules/",
+      "/.webpack/",
+      "/dist/",
+      "/.vscode/",
+      "/coverage/"
+    ],
+    "coveragePathIgnorePatterns": [
+      "/node_modules/",
+      "/.webpack/",
+      "/dist/",
+      "/.vscode/",
+      "/coverage/",
+      "/src/common/constants/",
+      "/src/common/dto/",
+      "/src/common/middlewares/",
+      "/src/common/decorators/",
+      "/src/config/",
+      "/src/db/",
+      "/src/i18n/",
+      "\\.module\\.ts",
+      "\\.dto\\.ts",
+      "/src/modules/.*/index\\.ts$",
+      "/src/modules/index.ts",
+      "/src/services/.*/index\\.ts$",
+      "/src/common/.*/index\\.ts$",
+      "/src/main.ts",
+      "/src/.*/index\\.ts"
+    ],
     "testRegex": ".*\\.spec\\.ts$",
     "transform": {
       "^.+\\.(t|j)s$": "ts-jest"

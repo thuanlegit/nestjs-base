@@ -11,8 +11,6 @@ export function postProcessResponseToCamelCase(
     return transformed;
   }
 
-  if (!result) return result;
-
   if (Array.isArray(result)) {
     return result.map((row: Record<string, any>) => mapKeysToCamelCase(row));
   }
